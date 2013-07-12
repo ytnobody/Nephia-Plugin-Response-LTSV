@@ -2,12 +2,10 @@ package Nephia::Plugin::Response::LTSV;
 use 5.008005;
 use strict;
 use warnings;
-
-our $VERSION = "0.01";
-
 use Text::LTSV;
 use Hash::Flatten ();
 
+our $VERSION = "0.01";
 our @EXPORT = qw/ltsv_res/;
 
 sub ltsv_res ($) {
