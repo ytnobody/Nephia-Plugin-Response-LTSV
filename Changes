@@ -1,6 +1,8 @@
 Revision history for Perl extension Nephia-Plugin-Response-LTSV
 
 {{$NEXT}}
+    - bug fix : force ordering by key
 
+0.01
     - original version
 

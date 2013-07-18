@@ -12,13 +12,19 @@ our @EXPORT = qw/ltsv_res/;
 
 sub ltsv_res ($) {
     my $value = shift;
-    my $content = ref($value) eq 'HASH' ? Text::LTSV->new(%{Hash::Flatten::flatten($value)})->to_s :
-                  ref($value) eq 'ARRAY' ? join( "\n", map { Text::LTSV->new(%{Hash::Flatten::flatten($_)})->to_s } @$value) :
+    my $content = ref($value) eq 'HASH' ? Text::LTSV->new(%{_preprocess_hash($value)})->to_s :
+                  ref($value) eq 'ARRAY' ? join( "\n", map { Text::LTSV->new(%{_preprocess_hash($_)})->to_s } @$value) :
                   undef
     ;
     return [
         200, ['Content-Type' => 'text/x-ltsv; charset=UTF-8'], [ $content ]
     ];
+}
+
+sub _preprocess_hash {
+    my $hash = shift;
+    my $flatten = Hash::Flatten::flatten($hash);
+    return +{map {($_ => $flatten->{$_})} sort keys %$flatten};
 }
 
 1;
