@@ -1,5 +1,5 @@
 requires 'perl', '5.008001';
-requires 'Nephia', '0.32';
+requires 'PrimalNephia', '0.32';
 requires 'Text::LTSV';
 requires 'Hash::Flatten';
 
