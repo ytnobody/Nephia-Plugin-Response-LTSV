@@ -1,11 +1,11 @@
 # NAME
 
-PrimalNephia::Plugin::Response::LTSV - A plugin for PrimalNephia that give LTSV responding feature
+Nephia::Plugin::Response::LTSV - A plugin for Nephia that give LTSV responding feature
 
 # SYNOPSIS
 
     package YourApp;
-    use PrimalNephia plugins => ['Response::LTSV'];
+    use Nephia plugins => ['Response::LTSV'];
     path '/' => sub {
         return ltsv_res [
             +{ name => 'ytnobody', age => '32' },
@@ -18,7 +18,7 @@ PrimalNephia::Plugin::Response::LTSV - A plugin for PrimalNephia that give LTSV 
 
 Labeled Tab-separated Values (LTSV) format is a variant of Tab-separated Values (TSV). 
 
-PrimalNephia::Plugin::Response::LTSV gives responding feature with in LTSV format.
+Nephia::Plugin::Response::LTSV gives responding feature with in LTSV format.
 
 # EXPORTS
 

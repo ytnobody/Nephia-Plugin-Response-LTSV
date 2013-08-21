@@ -4,8 +4,8 @@ use Plack::Test;
 use HTTP::Request::Common;
 
 {
-    package PrimalPrimalNephia::TestApp::LTSV;
-    use PrimalPrimalNephia plugins => ['Response::LTSV'];
+    package Nephia::TestApp::LTSV;
+    use Nephia plugins => ['Response::LTSV'];
     path '/' => sub {
         ltsv_res [
             {
@@ -27,7 +27,7 @@ use HTTP::Request::Common;
 };
 
 subtest 'normal' => sub {
-    my $app = PrimalPrimalNephia::TestApp::LTSV->app;
+    my $app = Nephia::TestApp::LTSV->app;
     test_psgi $app, sub {
         my $cb = shift;
         my $res = $cb->(GET '/');
